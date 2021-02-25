@@ -32,15 +32,6 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$jUnitVersion")
 }
 
-tasks.withType<JavaCompile> {
-    options.encoding = "UTF-8"
-}
-
-tasks.withType<Test> {
-    // Enables JUnit 5 Jupiter module
-    useJUnitPlatform()
-}
-
 application {
     // Define the main class for the application.
     mainClass.set("it.unibo.sampleapp.App")
@@ -51,21 +42,32 @@ java {
     targetCompatibility = JavaVersion.VERSION_11
 }
 
-tasks.register("listPlugins") {
-    doLast {
-        project.plugins.forEach {
-            println(it)
+tasks {
+    withType<JavaCompile> {
+        options.encoding = "UTF-8"
+    }
+
+    withType<Test> {
+        // Enables JUnit 5 Jupiter module
+        useJUnitPlatform()
+    }
+
+    register<DefaultTask>("listPlugins") {
+        doLast {
+            project.plugins.forEach {
+                println(it)
+            }
         }
     }
-}
 
-val jar by tasks.getting(Jar::class) {
-    manifest {
-        attributes["Main-Class"] = "it.unibo.sampleapp.App"
+    getting(Jar::class) {
+        manifest {
+            attributes["Main-Class"] = "it.unibo.sampleapp.App"
+        }
     }
-}
 
-task("runMain", JavaExec::class) {
-    main = "it.unibo.sampleapp.App"
-    classpath = sourceSets["main"].runtimeClasspath
+    task("runMain", JavaExec::class) {
+        main = "it.unibo.sampleapp.App"
+        classpath = sourceSets["main"].runtimeClasspath
+    }
 }
