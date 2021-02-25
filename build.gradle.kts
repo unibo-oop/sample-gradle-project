@@ -43,7 +43,7 @@ tasks.withType<Test> {
 
 application {
     // Define the main class for the application.
-    mainClassName = "it.unibo.sampleapp.App"
+    mainClass.set("it.unibo.sampleapp.App")
 }
 
 java {
