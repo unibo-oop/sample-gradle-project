@@ -18,6 +18,8 @@ repositories {
     mavenCentral()
 }
 
+val jUnitVersion = "5.7.1"
+
 dependencies {
     implementation("com.diffplug.durian:durian:2.0") // one-line lambda exception handling
     implementation("com.google.apis:google-api-services-books:v1-rev20201021-1.30.10")
@@ -26,8 +28,8 @@ dependencies {
     runtimeOnly("org.slf4j:slf4j-log4j12:1.7.30")
 
     // JUnit API and testing engine
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.2")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.5.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$jUnitVersion")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$jUnitVersion")
 }
 
 tasks.withType<JavaCompile> {
