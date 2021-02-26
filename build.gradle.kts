@@ -22,8 +22,8 @@ val jUnitVersion = "5.7.1"
 val slf4jVersion = "1.7.30"
 
 dependencies {
-    implementation("com.diffplug.durian:durian:2.0") // one-line lambda exception handling
-    implementation("com.google.apis:google-api-services-books:v1-rev20201021-1.30.10")
+    implementation("com.diffplug.durian:durian:3.4.0") // one-line lambda exception handling
+    implementation("com.google.apis:google-api-services-books:v1-rev20201021-1.31.0")
     implementation("com.omertron:API-OMDB:1.5")
 
     implementation("org.slf4j:slf4j-api:$slf4jVersion")
