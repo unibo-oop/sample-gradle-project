@@ -93,7 +93,7 @@ jobs:
           path: ok
   CI-Complete:
     needs: Build-Success
-    if: always()
+    if: always() && ${{ github.event.pull_request.head.repo.full_name != github.repository }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v2
