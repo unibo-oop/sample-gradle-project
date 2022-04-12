@@ -19,7 +19,7 @@ jobs:
     strategy:
       matrix:
         os: [windows, macos, ubuntu]
-        jvm_version: [11, 16, 17]
+        jvm_version: [11, 16, 17, 18]
     runs-on: ${{ matrix.os }}-latest
     steps:
       - name: Checkout
