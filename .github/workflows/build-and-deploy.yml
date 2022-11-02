@@ -35,3 +35,4 @@ jobs:
             ./gradlew check
           should-run-codecov: false
           should-deploy: true
+          should-validate-wrapper: ${{ matrix.os == 'ubuntu' && matrix.jvm_version == '17' }}
