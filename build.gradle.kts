@@ -37,7 +37,7 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic:1.4.5")
 
     // JUnit API and testing engine
-    val jUnitVersion = "5.9.1"
+    val jUnitVersion = "5.9.2"
     // when dependencies share the same version, grouping in a val helps to keep them in sync
     testImplementation("org.junit.jupiter:junit-jupiter-api:$jUnitVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$jUnitVersion")
