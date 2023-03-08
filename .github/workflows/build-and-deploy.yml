@@ -23,7 +23,7 @@ jobs:
         jvm_version: [17, 18, 19]
     runs-on: ${{ matrix.os }}
     concurrency:
-      group: ${{ github.workflow }}-build-${{ matrix.os }}-${{ jvm_version }}-${{ github.event.number || github.ref }}
+      group: ${{ github.workflow }}-build-${{ matrix.os }}-${{ matrix.jvm_version }}-${{ github.event.number || github.ref }}
       cancel-in-progress: true
     steps:
       - name: Checkout
