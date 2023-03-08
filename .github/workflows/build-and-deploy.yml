@@ -15,13 +15,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  Build:
+  build:
     if: contains(github.repository, 'sample-gradle-project') && !github.event.repository.fork
     strategy:
       matrix:
-        os: [windows, macos, ubuntu]
+        os: [ windows-2022, macos-12, ubuntu-22.04 ]
         jvm_version: [17, 18, 19]
-    runs-on: ${{ matrix.os }}-latest
+    runs-on: ${{ matrix.os }}
+    concurrency:
+      group: ${{ github.workflow }}-build-${{ matrix.os }}-${{ github.event.number || github.ref }}
+      cancel-in-progress: true
     steps:
       - name: Checkout
         uses: DanySK/action-checkout@0.2.5
@@ -36,3 +39,15 @@ jobs:
           should-run-codecov: false
           should-deploy: true
           should-validate-wrapper: ${{ matrix.os == 'ubuntu' && matrix.jvm_version == '17' }}
+  success:
+    runs-on: ubuntu-22.04
+    needs:
+      - build
+    if: >-
+      always() && (
+        contains(join(needs.*.result, ','), 'failure')
+        || !contains(join(needs.*.result, ','), 'cancelled')
+      )
+    steps:
+      - name: Verify that there were no failures
+        run: ${{ !contains(join(needs.*.result, ','), 'failure') }}
