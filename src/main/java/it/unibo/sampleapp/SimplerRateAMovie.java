@@ -13,8 +13,7 @@ public final class SimplerRateAMovie {
     private static final String DEFAULT_MOVIE = "Breaking Bad";
     private static final String OMDB_API_KEY = System.getenv("OMDB_API_KEY");
 
-    private SimplerRateAMovie() {
-    }
+    private SimplerRateAMovie() { }
 
     /**
      * Launches the application. Expects {@code OMDB_API_KEY} to be a valid environment variable.

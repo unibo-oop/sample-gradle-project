@@ -17,8 +17,7 @@ public final class RateAMovie {
     private static final String OMDB_API_KEY = System.getenv("OMDB_API_KEY");
     private static final Logger LOGGER = LoggerFactory.getLogger(RateAMovie.class);
 
-    private RateAMovie() {
-    }
+    private RateAMovie() { }
 
     /**
      * Launches the application. Expects {@code OMDB_API_KEY} to be a valid environment variable.
@@ -41,14 +40,16 @@ public final class RateAMovie {
             .map(function(omdb::getInfo))
             .forEach(movie ->
                 LOGGER.info(
-                    "\n=========================\n{}\n"
-                        + "Directed by {}; {}; {}\n"
-                        + "Written by {}\n"
-                        + "Cast: {}\n"
-                        + "{} {}\n"
-                        + "IMDb {} (over {} votes), Rotten Tomatoes {}. {}\n"
-                        + "{}\n"
-                        + "IMDb handle: {}",
+                    """
+                    {}
+                    Directed by {}; {}; {}
+                    Written by {}
+                    Cast: {}
+                    {} {}
+                    IMDb {} (over {} votes), Rotten Tomatoes {}. {}
+                    {}
+                    IMDb handle: {}
+                    """,
                     movie.getTitle(),
                     movie.getDirector(),
                     String.join(", ", movie.getCountries()),
