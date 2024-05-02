@@ -21,7 +21,7 @@ repositories {
 dependencies {
     // Maven dependencies are composed by a group name, a name and a version, separated by colons
     implementation("com.diffplug.durian:durian:3.4.0")
-    implementation("com.google.apis:google-api-services-books:v1-rev20201021-1.31.0")
+    implementation("com.google.apis:google-api-services-books:v1-rev20240214-2.0.0")
     implementation("com.omertron:API-OMDB:1.5")
 
     /*
