@@ -20,7 +20,10 @@ jobs:
     strategy:
       matrix:
         os: [ windows-2022, macos-14, ubuntu-22.04 ]
-        jvm_version: [17, 18, 19]
+        jvm_version:
+          - 17
+          - 21
+          - 22
     runs-on: ${{ matrix.os }}
     concurrency:
       group: ${{ github.workflow }}-build-${{ matrix.os }}-${{ matrix.jvm_version }}-${{ github.event.number || github.ref }}
