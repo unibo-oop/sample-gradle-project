@@ -1,0 +1,50 @@
+queue_rules:
+  - name: master
+    merge_conditions:
+        - or:
+            - and:
+                - "#approved-reviews-by>=1"
+                - "#changes-requested-reviews-by=0"
+            - and: &automatic-update
+                - or:
+                    - author=renovate[bot]
+                    - author=dependabot[bot]
+                - "#review-threads-unresolved=0"
+                - label=dependencies
+        - "#commits-behind=0"
+        - -draft
+        - -conflict
+    merge_method: rebase
+
+pull_request_rules:
+  - name: Auto-update with merge if appropriately labeled
+    conditions:
+      - label=auto-update-merge
+      - -draft
+      - -conflict
+    actions:
+      update:
+  - name: rebase-merge
+    conditions:
+        - or:
+            - and:
+                - "#approved-reviews-by>=1"
+                - "#changes-requested-reviews-by=0"
+                - "#review-threads-unresolved=0"
+                - label=in-merge-queue
+            - and: *automatic-update
+        - -draft
+        - -conflict
+    actions:
+      queue:
+        name: master
+  - name: ask to resolve conflict
+    conditions:
+      - conflict
+    actions:
+      comment:
+        message: |
+          Hi @{{author}}! :wave:
+          This pull request has conflicts :confounded:
+          Could you fix it? :wrench:
+          Thank you! :pray:
