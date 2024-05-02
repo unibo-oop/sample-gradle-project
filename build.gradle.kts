@@ -28,7 +28,7 @@ dependencies {
      * Simple Logging Facade for Java (SLF4J) with Apache Log4j
      * See: http://www.slf4j.org/
      */
-    val slf4jVersion = "1.7.30"
+    val slf4jVersion = "1.7.36"
     // when dependencies share the same version, grouping in a val helps to keep them in sync
     implementation("org.slf4j:slf4j-api:$slf4jVersion")
     runtimeOnly("org.slf4j:slf4j-log4j12:$slf4jVersion")
