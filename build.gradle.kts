@@ -34,7 +34,7 @@ dependencies {
     runtimeOnly("org.slf4j:slf4j-log4j12:$slf4jVersion")
 
     // JUnit API and testing engine
-    val jUnitVersion = "5.7.1"
+    val jUnitVersion = "5.7.2"
     testImplementation("org.junit.jupiter:junit-jupiter-api:$jUnitVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$jUnitVersion")
 }
