@@ -94,7 +94,7 @@ jobs:
         run: .github/build-steps/check.sh || .github/build-steps/check.sh
       - name: CodeCov
         if: ${{ env.REFERENCE == 'true' }}
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v2
       - name: Deploy
         if: ${{ env.REFERENCE == 'true' && github.event_name == 'push' }}
         shell: bash
