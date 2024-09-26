@@ -19,7 +19,7 @@ jobs:
     if: contains(github.repository, 'sample-gradle-project') && !github.event.repository.fork
     strategy:
       matrix:
-        os: [ windows-2022, macos-14, ubuntu-22.04 ]
+        os: [ windows-2022, macos-14, ubuntu-24.04 ]
         jvm_version:
           - 17
           - 21
@@ -43,7 +43,7 @@ jobs:
           should-deploy: true
           should-validate-wrapper: ${{ matrix.os == 'ubuntu' && matrix.jvm_version == '17' }}
   success:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs:
       - build
     if: >-
