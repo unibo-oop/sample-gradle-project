@@ -9,7 +9,7 @@ repositories { // Where to search for dependencies
 
 dependencies {
     // Suppressions for SpotBugs
-    compileOnly("com.github.spotbugs:spotbugs-annotations:4.9.1")
+    compileOnly("com.github.spotbugs:spotbugs-annotations:4.9.2")
 
     // Maven dependencies are composed by a group name, a name and a version, separated by colons
     implementation("com.omertron:API-OMDB:1.5")
