@@ -19,7 +19,7 @@ jobs:
     if: contains(github.repository, 'sample-gradle-project') && !github.event.repository.fork
     strategy:
       matrix:
-        os: [ windows-2022, macos-14, ubuntu-24.04 ]
+        os: [ windows-2025, macos-14, ubuntu-24.04 ]
         jvm_version:
           - 17
           - 21
