@@ -35,6 +35,7 @@ jobs:
         with:
           custom-secret-0: ${{ secrets.OMDB_API_KEY }}
           java-version: ${{ matrix.jvm_version }}
+          build-command: ./gradlew assemble
           check-command: true
           deploy-command: |
             export OMDB_API_KEY="$CUSTOM_SECRET_0"
