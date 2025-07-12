@@ -25,7 +25,7 @@ public final class SimplerRateAMovie {
             out.println("Invalid OMDB API Key {}, please set a valid API Key as the environment variable OMDB_API_KEY");
             System.exit(1);
         }
-        final String[] titles = args.length == 0 ? new String[] { DEFAULT_MOVIE } : args;
+        final String[] titles = args.length == 0 ? new String[] {DEFAULT_MOVIE} : args;
         final OmdbApi omdb = new OmdbApi(OMDB_API_KEY);
         for (final var title: titles) {
             final var searchResults = omdb.search(title).getResults();

@@ -29,7 +29,7 @@ public final class RateAMovie {
             LOGGER.error("Invalid OMDB API Key '{}', set a valid API Key as env variable OMDB_API_KEY", OMDB_API_KEY);
             System.exit(1);
         }
-        final String[] titles = args.length == 0 ? new String[] { DEFAULT_MOVIE } : args;
+        final String[] titles = args.length == 0 ? new String[] {DEFAULT_MOVIE} : args;
         final OmdbApi omdb = new OmdbApi(OMDB_API_KEY);
         Arrays.stream(titles)
             .map(function(omdb::search)) // Exceptions become RuntimeExceptions
