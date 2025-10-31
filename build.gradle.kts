@@ -37,7 +37,7 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic:1.5.20")
 
     // JUnit API and testing engine
-    testImplementation(platform("org.junit:junit-bom:6.0.0"))
+    testImplementation(platform("org.junit:junit-bom:6.0.1"))
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
