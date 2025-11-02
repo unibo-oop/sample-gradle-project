@@ -49,9 +49,10 @@ application {
 }
 
 tasks.test {
-    useJUnitPlatform()
-    testLogging {
-        events(*org.gradle.api.tasks.testing.logging.TestLogEvent.values())
-        showStandardStreams = true
+    useJUnitPlatform() // Enables the engine of JUnit 5/6
+    testLogging { // Additional Options
+        // Display all events (test started, succeeded, failed...)
+        events(*org.gradle.api.tasks.testing.logging.TestLogEvent.entries.toTypedArray())
+        showStandardStreams = true // Show the standard output
     }
 }
