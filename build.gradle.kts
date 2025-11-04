@@ -48,7 +48,7 @@ application {
     mainClass.set("it.unibo.sampleapp.RateAMovie")
 }
 
-tasks.test {
+tasks.withType<Test>().configureEach {
     useJUnitPlatform() // Enables the engine of JUnit 5/6
     testLogging { // Additional Options
         // Display all events (test started, succeeded, failed...)
