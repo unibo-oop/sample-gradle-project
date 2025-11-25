@@ -28,7 +28,7 @@ dependencies {
     implementation("org.jooq:jool:0.9.15")
 
     /*
-     * Simple Logging Facade for Java (SLF4J) with Apache Log4j
+     * Simple Logging Facade for Java (SLF4J)
      * See: http://www.slf4j.org/
      */
     val slf4jVersion = "2.0.17"
