@@ -31,18 +31,14 @@
 Il software oggetto di questo progetto è un videogioco intitolato Make an Ice Cream. L'obiettivo dell’applicazione è quello di offrire un’esperienza di gioco, in cui l’utente assume il ruolo di un gelatiere che deve soddisfare gli ordini di una serie di clienti entro dei vincoli temporali prestabiliti. Durante lo svolgimento del gioco, all’utente vengono presentati diversi clienti in modo sequenziale, uno alla volta, e ognuno è caratterizzato da un ordine specifico e da un timer. L’ordine di un cliente descrive la composizione del gelato desiderato, e il timer specifica il tempo limite entro il quale l’ordine deve essere completato. Al giocatore vengono inoltre forniti, su un bancone, una serie di ingredienti quali gusti di gelato, tipi di cono e topping. Il compito del giocatore è quello di selezionare gli ingredienti appropriati e comporre il gelato in modo conforme all’ordine, per poi consegnarlo al cliente. Il gioco è strutturato in livelli a difficoltà crescente: con l’avanzare dei livelli aumentano la complessità degli ordini e il numero complessivo di clienti, e diminuisce il tempo limite di ciascun cliente. Inoltre, il sistema prevede un numero limitato di vite pari a tre per ciascun livello. Una vita viene persa nel caso in cui il giocatore consegni un gelato non conforme all’ordine richiesto, oppure quando il tempo a disposizione per un cliente scade senza che la consegna dell’ordine venga completata. Al termine delle vite disponibili, la partita si conclude con uno stato di game over.
 
 
-
-
 \subsection*{Requisiti funzionali}
 \begin{itemize}
 	\item I clienti dovranno essere presentati al giocatore in modo sequenziale, uno alla volta.
 	\item L’applicazione dovrà consentire la composizione del gelato utilizzando gli ingredienti disponibili sul bancone.
-	\item Ciascun livello dovrà prevedere un numero complessivo di clienti variabile, che aumenterà con il livello di difficoltà.
 	\item Il giocatore dovrà avere la possibilità di confermare la consegna del gelato composto al cliente corrente, oppure annullare la composizione del gelato in corso e riprovare la preparazione dell’ordine.
 	\item Al momento della consegna, si dovrà verificare la conformità del gelato consegnato rispetto all’ordine richiesto.
 	\item L’applicazione dovrà gestire un numero limitato di vite pari a tre per ciascun livello, e terminare la partita con un stato di game over quando le vite esauriscono.
 	\item L’applicazione dovrà gestire livelli di gioco a difficoltà crescente, con ordini più articolati e numero complessivo di clienti maggiore.
-
 \end{itemize}
 
 \subsection*{Requisiti non funzionali}
@@ -53,16 +49,15 @@ Il software oggetto di questo progetto è un videogioco intitolato Make an Ice C
 	\item L’applicazione dovrà fornire una progressione graduale della difficoltà tra i livelli.
 \end{itemize}
 
-
 \section{Modello del Dominio}
 In Make an Ice Cream, il giocatore interpreta il ruolo di un gelatiere che ha il compito di servire una serie di clienti preparando loro dei gelati. A ogni cliente sono associati un ordine, che deve indicare gli ingredienti richiesti per il gelato, e un timer che limita il tempo di consegna. Il giocatore deve avere accesso a un insieme di ingredienti per poter comporre il gelato richiesto dall’ordine, e servire quindi il cliente. Quando il gelato viene consegnato al cliente, questo verifica se l’ordine è stato soddisfatto correttamente, e in caso negativo il giocatore perde una vita. Si può perdere una vita anche nel caso in cui il timer associato al cliente scade e il gelato richiesto non è stato consegnato. Il gioco è organizzato in livelli, e ogni livello ha una sua difficoltà, una sequenza di clienti da servire e un numero fisso di vite. Quando tutte le vite del livello vengono esaurite, il gioco termina con uno stato di game over.
-Gli elementi costitutivi del problema sono sintetizzati in \Cref{img:analysis}.
+Gli elementi costitutivi del problema sono sintetizzati in \Cref{img:UML_Generale}.
 
 \begin{figure}[H]
 	\centering{}
-	\includegraphics{img/analysis.pdf}
+	\includegraphics[width=1.2\textwidth]{img/UML_Generale.pdf}
 	\caption{Schema UML dell'analisi del dominio, con rappresentate le entità principali ed i rapporti fra loro}
-	\label{img:analysis}
+	\label{img:UML_Generale}
 \end{figure}
 
 \chapter{Design}

@@ -3,31 +3,31 @@
 \contentsline {chapter}{\numberline {1}Analisi}{2}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Descrizione e requisiti}{2}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Modello del Dominio}{3}{section.1.2}%
-\contentsline {chapter}{\numberline {2}Design}{5}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Architettura}{5}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Design dettagliato}{6}{section.2.2}%
-\contentsline {subsubsection}{Personalità intercambiabili}{10}{section*.8}%
-\contentsline {paragraph}{Problema}{10}{section*.9}%
-\contentsline {paragraph}{Soluzione}{10}{section*.10}%
-\contentsline {subsubsection}{Riuso del codice delle personalità}{11}{section*.11}%
-\contentsline {paragraph}{Problema}{11}{section*.12}%
-\contentsline {paragraph}{Soluzione}{11}{section*.13}%
-\contentsline {subsubsection}{Gestione di output multipli}{12}{section*.14}%
-\contentsline {paragraph}{Problema}{12}{section*.15}%
-\contentsline {paragraph}{Soluzione}{12}{section*.16}%
-\contentsline {chapter}{\numberline {3}Sviluppo}{15}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Testing automatizzato}{15}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Note di sviluppo}{16}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Esempio}{18}{subsection.3.2.1}%
-\contentsline {subsubsection}{Utilizzo della libreria SLF4J}{18}{section*.22}%
-\contentsline {subsubsection}{Utilizzo di \texttt {LoadingCache} dalla libreria Google Guava}{19}{section*.23}%
-\contentsline {subsubsection}{Utilizzo di \texttt {Stream} e lambda expressions}{19}{section*.24}%
-\contentsline {subsubsection}{Scrittura di metodo generico con parametri contravarianti}{19}{section*.25}%
-\contentsline {subsubsection}{Protezione da corse critiche usando \texttt {Semaphore}}{19}{section*.26}%
-\contentsline {chapter}{\numberline {4}Commenti finali}{20}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Autovalutazione e lavori futuri}{20}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Difficoltà incontrate e commenti per i docenti}{20}{section.4.2}%
-\contentsline {chapter}{\numberline {A}Guida utente}{22}{appendix.Alph1}%
-\contentsline {chapter}{\numberline {B}Esercitazioni di laboratorio}{23}{appendix.Alph2}%
-\contentsline {subsection}{\numberline {B.0.1}paolino.paperino@studio.unibo.it}{23}{subsection.Alph2.0.1}%
-\contentsline {subsection}{\numberline {B.0.2}paperon.depaperoni@studio.unibo.it}{23}{subsection.Alph2.0.2}%
+\contentsline {chapter}{\numberline {2}Design}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Architettura}{6}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Design dettagliato}{7}{section.2.2}%
+\contentsline {subsubsection}{Personalità intercambiabili}{11}{section*.8}%
+\contentsline {paragraph}{Problema}{11}{section*.9}%
+\contentsline {paragraph}{Soluzione}{11}{section*.10}%
+\contentsline {subsubsection}{Riuso del codice delle personalità}{12}{section*.11}%
+\contentsline {paragraph}{Problema}{12}{section*.12}%
+\contentsline {paragraph}{Soluzione}{12}{section*.13}%
+\contentsline {subsubsection}{Gestione di output multipli}{13}{section*.14}%
+\contentsline {paragraph}{Problema}{13}{section*.15}%
+\contentsline {paragraph}{Soluzione}{13}{section*.16}%
+\contentsline {chapter}{\numberline {3}Sviluppo}{16}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Testing automatizzato}{16}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Note di sviluppo}{17}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Esempio}{19}{subsection.3.2.1}%
+\contentsline {subsubsection}{Utilizzo della libreria SLF4J}{19}{section*.22}%
+\contentsline {subsubsection}{Utilizzo di \texttt {LoadingCache} dalla libreria Google Guava}{20}{section*.23}%
+\contentsline {subsubsection}{Utilizzo di \texttt {Stream} e lambda expressions}{20}{section*.24}%
+\contentsline {subsubsection}{Scrittura di metodo generico con parametri contravarianti}{20}{section*.25}%
+\contentsline {subsubsection}{Protezione da corse critiche usando \texttt {Semaphore}}{20}{section*.26}%
+\contentsline {chapter}{\numberline {4}Commenti finali}{21}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Autovalutazione e lavori futuri}{21}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Difficoltà incontrate e commenti per i docenti}{21}{section.4.2}%
+\contentsline {chapter}{\numberline {A}Guida utente}{23}{appendix.Alph1}%
+\contentsline {chapter}{\numberline {B}Esercitazioni di laboratorio}{24}{appendix.Alph2}%
+\contentsline {subsection}{\numberline {B.0.1}paolino.paperino@studio.unibo.it}{24}{subsection.Alph2.0.1}%
+\contentsline {subsection}{\numberline {B.0.2}paperon.depaperoni@studio.unibo.it}{24}{subsection.Alph2.0.2}%
