@@ -6,11 +6,11 @@ import it.unibo.makeanicecream.api.Level;
 
 public class GameImpl implements Game {
 
-    private Level currentLevel;
+    //private Level currentLevel;
     private GameState state;
-
+    
     @Override
-    public void start(int levelNumber) {
+    public void start(final int levelNumber) {
         //this.currentLevel = new LevelImpl();
         this.state = GameState.PLAYING;
     }
@@ -36,11 +36,7 @@ public class GameImpl implements Game {
 
     @Override
     public boolean isGameOver() {
-        if (this.state == GameState.GAME_OVER) {
-            return true;
-        }
-
-        return false;
+        return this.state == GameState.GAME_OVER;
     }
 
 }
