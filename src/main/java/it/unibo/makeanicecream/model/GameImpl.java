@@ -1,38 +1,46 @@
 package it.unibo.makeanicecream.model;
 
 import it.unibo.makeanicecream.api.Game;
+import it.unibo.makeanicecream.api.GameState;
 import it.unibo.makeanicecream.api.Level;
 
 public class GameImpl implements Game {
 
+    private Level currentLevel;
+    private GameState state;
+
     @Override
     public void start(int levelNumber) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'start'");
+        //this.currentLevel = new LevelImpl();
+        this.state = GameState.PLAYING;
     }
 
     @Override
     public Level getLevel() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getLevel'");
+        return this.getLevel();
     }
 
     @Override
     public void pause() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'pause'");
+        if (this.state == GameState.PLAYING) {
+            this.state = GameState.PAUSED;
+        }
     }
 
     @Override
     public void resume() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'resume'");
+        if (this.state == GameState.PAUSED) {
+            this.state = GameState.PLAYING;
+        }
     }
 
     @Override
     public boolean isGameOver() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isGameOver'");
+        if (this.state == GameState.GAME_OVER) {
+            return true;
+        }
+
+        return false;
     }
 
 }
