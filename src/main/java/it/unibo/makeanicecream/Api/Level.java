@@ -1,5 +1,6 @@
-package it.unibo.makeanicecream.Api;
+package it.unibo.makeanicecream.api;
 
-public class Level {
+public interface Level {
 
-}
+    
+} 
