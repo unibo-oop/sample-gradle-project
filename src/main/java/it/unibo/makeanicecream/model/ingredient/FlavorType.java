@@ -7,7 +7,7 @@ public enum FlavorType {
     CHOCOLATE,
     STRAWBERRY,
     VANILLA,
-    BULEBERRY,
+    BLUEBERRY,
     ORANGE,
     GREENAPPLE
 }
