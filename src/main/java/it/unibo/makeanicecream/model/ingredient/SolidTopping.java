@@ -1,9 +1,11 @@
 package it.unibo.makeanicecream.model.ingredient;
 
+import it.unibo.makeanicecream.api.Topping;
+
 /**
  * Topping in solid form enumeration.
  */
-public enum SolidTopping {
+public enum SolidTopping implements Topping {
     /**
      * Cherry topping.
      */
@@ -11,5 +13,10 @@ public enum SolidTopping {
     /**
      * Cookies topping.
      */
-    COOKIES
+    COOKIES;
+
+    @Override
+    public boolean isLiquid() {
+        return false;
+    }
 }
