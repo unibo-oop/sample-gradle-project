@@ -7,6 +7,12 @@ import it.unibo.makeanicecream.model.ingredient.FlavorType;
 import it.unibo.makeanicecream.model.ingredient.LiquidTopping;
 import it.unibo.makeanicecream.model.ingredient.SolidTopping;
 
+/**
+ * IceCreamImpl class implementing the Icecream interface.
+ * This class models the state of an ice cream, including cone type,
+ * flavors, liquid toppings, and optional solid topping.
+ * It contains no construction logic and is updated by the builder.
+ */
 public class IceCreamImpl implements Icecream{
     final Conetype conetype;
     final List<FlavorType> flavors;
