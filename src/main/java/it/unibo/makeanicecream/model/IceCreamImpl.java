@@ -2,10 +2,8 @@ package it.unibo.makeanicecream.model;
 
 import java.util.List;
 import it.unibo.makeanicecream.api.Icecream;
+import it.unibo.makeanicecream.api.Ingredient;
 import it.unibo.makeanicecream.model.ingredient.Conetype;
-import it.unibo.makeanicecream.model.ingredient.FlavorType;
-import it.unibo.makeanicecream.model.ingredient.LiquidTopping;
-import it.unibo.makeanicecream.model.ingredient.SolidTopping;
 
 /**
  * IceCreamImpl class implementing the Icecream interface.
@@ -14,26 +12,20 @@ import it.unibo.makeanicecream.model.ingredient.SolidTopping;
  * It contains no construction logic and is updated by the builder.
  */
 public class IceCreamImpl implements Icecream{
-    final Conetype conetype;
-    final List<FlavorType> flavors;
-    final List<LiquidTopping> liquidToppings;
-    final SolidTopping solidTopping;
+    private final Conetype conetype;
+    private final List<Ingredient> ingredients;
+    
 
     /**
      * Constructor.
      * @param conetype the type of cone
-     * @param flavors the list of flavors
-     * @param liquidToppings the list of liquid toppings
-     * @param solidTopping the solid topping
+     * @param ingredients the list of ingredients
      * @returns new IceCreamImpl instance
      */
-    public IceCreamImpl(final Conetype conetype, final List<FlavorType> flavors,
-            final List<LiquidTopping> liquidToppings, final SolidTopping solidTopping){
+    public IceCreamImpl(final Conetype conetype, final List<Ingredient> ingredients){
         
         this.conetype = conetype;
-        this.flavors = flavors;
-        this.liquidToppings = liquidToppings;
-        this.solidTopping = solidTopping;
+        this.ingredients = ingredients;
     }
 
     @Override
@@ -42,22 +34,8 @@ public class IceCreamImpl implements Icecream{
     }
 
     @Override
-    public List<FlavorType> getFlavors(){
-        return flavors;
+    public List<Ingredient> getIngredients(){
+        return ingredients;
     }
 
-    @Override
-    public List<LiquidTopping> getLiquidsToppings(){
-        return liquidToppings;
-    }
-
-    @Override
-    public SolidTopping getSolidTopping(){
-        return solidTopping;
-    }
-
-    @Override
-    public boolean isClosed(){
-        return solidTopping != null;
-    }
 }
