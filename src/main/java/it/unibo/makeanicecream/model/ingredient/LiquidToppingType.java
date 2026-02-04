@@ -5,5 +5,5 @@ package it.unibo.makeanicecream.model.ingredient;
  */
 public enum LiquidToppingType{
     CHOCOLATE_SYRUP,
-    STRAWBERRY_SYRUP;
+    STRAWBERRY_SYRUP
 }
