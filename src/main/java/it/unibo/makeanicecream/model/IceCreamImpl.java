@@ -14,6 +14,7 @@ import it.unibo.makeanicecream.model.ingredient.Conetype;
 public class IceCreamImpl implements Icecream{
     private final Conetype conetype;
     private final List<Ingredient> ingredients;
+    private final boolean isClosed;
     
 
     /**
@@ -22,10 +23,11 @@ public class IceCreamImpl implements Icecream{
      * @param ingredients the list of ingredients
      * @returns new IceCreamImpl instance
      */
-    public IceCreamImpl(final Conetype conetype, final List<Ingredient> ingredients){
+    public IceCreamImpl(final Conetype conetype, final List<Ingredient> ingredients, final boolean isClosed){
         
         this.conetype = conetype;
         this.ingredients = ingredients;
+        this.isClosed = isClosed;
     }
 
     @Override
@@ -36,6 +38,11 @@ public class IceCreamImpl implements Icecream{
     @Override
     public List<Ingredient> getIngredients(){
         return ingredients;
+    }
+
+    @Override
+    public boolean isClosed(){
+        return isClosed;
     }
 
 }

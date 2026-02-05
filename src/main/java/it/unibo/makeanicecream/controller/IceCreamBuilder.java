@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unibo.makeanicecream.model.IceCreamImpl;
+import it.unibo.makeanicecream.api.Ingredient;
 import it.unibo.makeanicecream.model.ingredient.Conetype;
-import it.unibo.makeanicecream.model.ingredient.FlavorType;
-import it.unibo.makeanicecream.model.ingredient.LiquidTopping;
-import it.unibo.makeanicecream.model.ingredient.SolidTopping;
+import it.unibo.makeanicecream.model.ingredient.IngredientType;
 
 /**
  * IceCreamBuilder is responsible for constructing an IceCreamImpl instance step by step.
@@ -16,20 +15,23 @@ import it.unibo.makeanicecream.model.ingredient.SolidTopping;
  * no further modifications are allowed. 
  */
 public class IceCreamBuilder{
-    private IceCreamImpl iceCream;
+    private Conetype cone;
+    private final List<Ingredient> list_ingredients = new ArrayList<>();
+    
+    private boolean isClosed = false;
     private boolean toppingEnabled;
 
+    private static final int MAX_SCOOPS = 3;
+
     /**
-     * The constructor initializes the builder.
-     * Default toppings are disabled.
+     * 
      */
     public IceCreamBuilder(){
-        this.toppingEnabled = false;
-        this.iceCream = null;
+        
     }
 
     /**
-     * Enable or disable the addition of toppings.
+     * Enable (after level >=4) or disable the addition of toppings.
      * @param enabled
      */
     public void setToppingEnabled(boolean enabled){
@@ -37,95 +39,100 @@ public class IceCreamBuilder{
     }
 
     /**
-     * Ensure that the ice cream has been initialized.
-     * @throws IllegalStateException if the ice cream is not initialized
+     * Return if the toppings are enabled.
+     * @return true if enabled, false otherwise
      */
-    private void requiredInitialized(){
-        if(this.iceCream == null){
-            throw new IllegalStateException("Ice cream not initialized. Call reset() first.");
-        }
-    }
-    /**
-     * Start/Restart with an empty ice cream with the given cone type.
-     * @param coneType the selected cone type for the ice cream
-     */
-    public void reset(final Conetype coneType){
-        this.iceCream = new IceCreamImpl(
-            coneType,
-            new ArrayList<>(),
-            new ArrayList<>(),
-            null
-        );
+    public boolean isToppingEnabled(){
+        return this.toppingEnabled;
     }
 
     /**
-     * Add a new flavor as a scoop to the ice cream.
-     * A maximum of 3 flavors is allowed.
-     * @param flavor the flavor to add
-     * @throws IllegalStateException if the ice cream is closed or maximum flavors reached
+     * Return if the ice cream is closed (solid topping present).
+     * @return true if closed, false otherwise
      */
-    public void addFlavor(FlavorType flavor){
-        requiredInitialized();
-        if(this.iceCream.isClosed()){
-            throw new IllegalStateException("Ice cream is closed, cannot add more flavors.");
-        }
-        if(this.iceCream.getFlavors().size() >= 3){
-            throw new IllegalStateException("Maximum number of flavors reached.");
-        }
-
-        this.iceCream.getFlavors().add(flavor);
-        this.iceCream.getLiquidsToppings().add(null);
+    public boolean isClosed(){
+        return this.isClosed;
     }
 
     /**
-     * Add a liquid topping associated with a specific flavor index.
-     * @param index the index of the flavor to associate the liquid topping with 
-     * @param liquid the liquid topping to add
-     * @throws IllegalStateException if the ice cream is closed, liquid topping already present, or toppings are disabled
-     * @throws IllegalArgumentException if the flavor index is invalid
+     * Choose a cone for the ice cream.
+     * @param conetype the cone type to choose
+     * @return true if successfully chosen, false otherwise
      */
-    public void addLiquidTopping(int index, LiquidTopping liquid){
-        requiredInitialized();
-        if(this.iceCream.isClosed()){
-            throw new IllegalStateException("Ice cream is closed, cannot add liquid toppings.");
+    public boolean chooseCone(final Conetype conetype){
+        if(conetype == null){
+            return false;
         }
-        if(index < 0 || index >= this.iceCream.getFlavors().size()){
-            throw new IllegalArgumentException("Invalid flavor index.");
-        }
-        if(this.iceCream.getLiquidsToppings().get(index) != null){
-            throw new IllegalStateException("Liquid topping already present for this flavor.");
-        }
-        if(toppingEnabled == false){
-            throw new IllegalStateException("Liquid toppings are disabled.");
-        }
-
-        this.iceCream.getLiquidsToppings().set(index, liquid);
+        this.cone = conetype;
+        return true;
     }
 
     /**
-     * Add a solid topping on top of the ice cream.
-     * Only one solid topping is allowed, and it closes the ice cream.
-     * @param solid the solid topping to add
-     * @throws IllegalStateException if the ice cream is already closed or toppings are disabled or no flavors present
+     * Count the number of scoops in the current ingredients list.
+     * @return the number of scoops
      */
-    public void addSolidTopping(SolidTopping solid){
-        requiredInitialized();
-        if(this.iceCream.isClosed()){
-            throw new IllegalStateException("Ice cream is already closed, cannot add another solid topping.");
+    private int countScoops(){
+        int count = 0;
+        for(Ingredient ingredient : list_ingredients){
+            if(ingredient.getType() == IngredientType.SCOOP){
+                count++;
+            }
         }
-        if(this.iceCream.getFlavors().isEmpty()){
-            throw new IllegalStateException("Cannot add solid topping to an ice cream with no flavors.");
-        }
-        if(toppingEnabled == false){
-            throw new IllegalStateException("Solid toppings are disabled.");
+        return count;
+    }
+
+    /**
+     * Check if there is at least one scoop in the current ingredients list.
+     * @param ingredient
+     * @return true if there is at least one scoop, false otherwise
+     */
+    private boolean hasScoops(){
+        return countScoops() > 0;
+    }
+
+    /**
+     * Try to add an ingredient to the ice cream.
+     * @param ingredient the ingredient to add
+     * @return true if added successfully, false otherwise
+     */
+    public boolean addIngredient(final Ingredient ingredient){
+        //ingredient cannot be null
+        if(ingredient == null){
+            return false;
         }
 
-        this.iceCream = new IceCreamImpl(
-            this.iceCream.getConetype(),
-            this.iceCream.getFlavors(),
-            this.iceCream.getLiquidsToppings(),
-            solid
-        );
+        //cone must be selected
+        if(cone == null){
+            return false;
+        }
+
+        //after solid topping, no more ingredients can be added
+        if(isClosed){
+            return false;
+        }
+
+        //if topping are disabled, cannot add toppings
+        if(!toppingEnabled && ingredient.getType() != IngredientType.SCOOP){
+            return false;
+        }
+
+        //when adding a topping, at least one scoop must be present
+        if(ingredient.getType() != IngredientType.SCOOP && !hasScoops()){
+            return false;
+        }
+
+        //cannot add more than MAX_SCOOPS scoops
+        if(ingredient.getType() == IngredientType.SCOOP && countScoops() >= MAX_SCOOPS){
+            return false;
+        }
+
+        //if solid topping is added, ice cream is closed
+        if(ingredient.getType() == IngredientType.SOLID_TOPPING){
+            isClosed = true;
+        }
+
+        this.list_ingredients.add(ingredient);
+        return true;
     }
 
     /**
@@ -133,7 +140,23 @@ public class IceCreamBuilder{
      * @return the ice cream instance
      */
     public IceCreamImpl getIceCream(){
-        requiredInitialized();
-        return this.iceCream;
+        return new IceCreamImpl(this.cone, List.copyOf(list_ingredients), this.isClosed);
+    }
+
+    /**
+     * Submit the current ice cream and return it.
+     * @return the ice cream instance
+     */
+    public IceCreamImpl submit(){
+        return getIceCream();
+    }
+
+    /**
+     * Restart with an empty ice cream.
+     */
+    public void reset(){
+        cone = null;
+        list_ingredients.clear();
+        isClosed = false;
     }
 }

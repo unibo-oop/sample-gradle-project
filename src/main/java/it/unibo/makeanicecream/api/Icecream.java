@@ -22,5 +22,11 @@ public interface Icecream {
      * @return the list of ingredients
      */
     List<Ingredient> getIngredients();
+
+    /**
+     * Return if the ice cream is closed (solid topping present).
+     * @return true if closed, false otherwise
+     */
+    boolean isClosed();
             
 }
