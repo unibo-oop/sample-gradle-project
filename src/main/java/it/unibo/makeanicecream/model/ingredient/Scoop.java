@@ -11,7 +11,8 @@ public class Scoop implements Ingredient {
 
     /**
      * Constructor with the specified flavor.
-     * @param flavor
+     * 
+     * @param flavor the flavor of the scoop
      */
     public Scoop(final FlavorType flavor) {
         this.flavor = flavor;
@@ -19,6 +20,7 @@ public class Scoop implements Ingredient {
 
     /**
      * Get the flavor of the scoop.
+     * 
      * @return the flavor
      */
     public FlavorType getFlavor() {
@@ -27,6 +29,7 @@ public class Scoop implements Ingredient {
 
     /**
      * Get the type of the ingredient.
+     * 
      * @return the ingredient type, in this case SCOOP
      */
     @Override

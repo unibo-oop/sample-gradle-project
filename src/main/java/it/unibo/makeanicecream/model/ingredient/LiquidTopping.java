@@ -11,26 +11,29 @@ public class LiquidTopping implements Ingredient {
 
     /**
      * Constructor for LiquidTopping.
+     * 
      * @param topping the liquid topping type
      */
-    public LiquidTopping(final LiquidToppingType topping){
+    public LiquidTopping(final LiquidToppingType topping) {
         this.topping = topping;
     }
 
     /**
      * Returns the liquid topping.
+     * 
      * @return the liquid topping type
      */
-    public LiquidToppingType getTopping(){
+    public LiquidToppingType getTopping() {
         return topping;
     }
 
     /**
      * Returns the ingredient type.
+     * 
      * @return the ingredient type which is LIQUID_TOPPING
      */
     @Override
-    public IngredientType getType(){
+    public IngredientType getType() {
         return IngredientType.LIQUID_TOPPING;
     }
 }
