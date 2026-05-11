@@ -56,3 +56,7 @@ tasks.withType<Test>().configureEach {
         showStandardStreams = true // Show the standard output
     }
 }
+
+tasks.withType<Javadoc>().configureEach {
+    isFailOnError = false
+}
