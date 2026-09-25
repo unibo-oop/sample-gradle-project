@@ -34,7 +34,7 @@ dependencies {
     val slf4jVersion = "2.0.20"
     implementation("org.slf4j:slf4j-api:$slf4jVersion")
     // Logback backend for SLF4J
-    runtimeOnly("ch.qos.logback:logback-classic:1.6.3")
+    runtimeOnly("ch.qos.logback:logback-classic:1.6.4")
 
     // JUnit API and testing engine
     testImplementation(platform("org.junit:junit-bom:6.1.3"))
